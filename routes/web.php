@@ -19,4 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// php composer
 Route::get('packages.json', 'ComposerController@index');
+
+// javascript packages
+Route::get('/packages/{name}/{version?}', 'PackageController@show');
+Route::post('/packages/-/npm/v1/security/audits/quick', 'PackageController@auditsQuick');
+Route::get('/packages/{name}/-/{tarball}', 'PackageController@tarball');
