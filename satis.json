@@ -1,0 +1,26 @@
+{
+  "name": "My Satis Repository",
+  "description": "A descriptive line of text goes here.",
+  "homepage": "http://package.dev",
+  "repositories": [
+    { "type": "composer", "url": "https://packagist.phpcomposer.com" },
+    { "type": "vcs", "url": "https://github.com/jndrm/phpwoo.git" }
+  ],
+  "require": {
+    "jndrm/phpwoo": "*"
+  },
+  "archive": {
+    "directory": "storage/archives",
+    "format": "tar",
+    "skip-dev": false,
+    "prefix-url": "http://package.dev/",
+    "checksum": true
+  },
+  "require-all": false,
+  "require-dependencies": true,
+  "require-dev-dependencies": true,
+  "providers": false,
+  "providers-history-size": 0,
+  "output-dir": "public",
+  "notify-batch": "http://package.dev/endpoint"
+}

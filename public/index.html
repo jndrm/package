@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>My Satis Repository Composer repository</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <meta name="csrf-token", value="">
+</head>
+
+<body>
+
+<div class="container" id="app">
+    <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    My Satis Repository
+                                        <small>A descriptive line of text goes here.</small>
+                                    </a>
+            </div>
+
+            <div class="collapse navbar-collapse in">
+                <p class="navbar-text navbar-right">
+                    <small class="text-muted" title="day, 26-Aug-2018 03:44:04 UTC">
+                        Last updated: <time datetime="~w8-08-26T03:44:04+00:00">day, 26 Aug 2018 03:44:04 UTC</time>
+                    </small>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <pre><code>{
+  "repositories": [{
+    "type": "composer",
+    "url": "http://package.dev"
+  }]
+}</code></pre>
+    <p class="text-right">
+        <em>Add this Satis repository to your <kbd>composer.json</kbd></em>
+    </p>
+
+    <div class="page-header">
+        <h1>Packages</h1>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <input type="text"
+                id="search"
+                class="form-control"
+                placeholder="Filter packages"
+                autocomplete="off"
+                autofocus>
+        </div>
+    </form>
+
+    <div id="package-list">
+                <div class="card card-info">
+    <h3 class="card-header package-title" id="jndrm/phpwoo">
+        <a href="#jndrm/phpwoo" class="anchor">
+            <svg class="octicon-link" width="16" height="16">
+                <use xlink:href="#octicon-link"></use>
+            </svg>
+            jndrm/phpwoo
+        </a>
+
+        
+    </h3>
+
+    <div class="card-body">
+                <p>Speed up your php applications with swoole!</p>
+        
+                <div class="row">
+            <div class="col-2 text-xs-left text-sm-right"><strong>Keywords</strong></div>
+            <div class="col-12 col-sm-10">server,swoole,drmer,phpwoo</div>
+        </div>
+        
+        
+                <div class="row">
+            <div class="col-2 text-xs-left text-sm-right"><strong>License</strong></div>
+            <div class="col-12 col-sm-10">MIT</div>
+        </div>
+        
+                <div class="row">
+            <div class="col-2 text-xs-left text-sm-right"><strong>Authors</strong></div>
+            <div class="col-12 col-sm-10">
+                                                                Donald
+                                
+                            </div>
+        </div>
+        
+        
+        <div class="row">
+            <div class="col-2 text-xs-left text-sm-right"><strong>Releases</strong></div>
+            <div class="col-12 col-sm-10">
+                                                                <a href="http://package.dev//storage/archives/jndrm/phpwoo/jndrm-phpwoo-37905da01fdfb463f4aac0719a0f74c76f0fefe0-zip-747941.tar" title="dist-reference: 37905da01fdfb463f4aac0719a0f74c76f0fefe0, branch-alias: dev-master">dev-master</a>
+                                
+                            </div>
+        </div>
+
+                    </div>
+</div>
+            </div>
+
+    <div id="ft" class="mt-3">
+        <p class="text-center"><small>This Composer repository is powered by <a href="https://github.com/composer/satis">Satis</a> 1.0.0</small></p>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
+
+<script type="text/javascript">
+
+function momentize(elements) {
+    elements.each(function () {
+        var element = $(this);
+        element.text(moment(element.attr('datetime')).fromNow());
+    });
+}
+
+$(function () {
+    var input = $('input#search');
+    var list = $('div#package-list');
+    var packages = list.find('h3');
+    var timeElements = $('time');
+    var inputTimeout;
+
+    var updateTimeElements = function () {
+        momentize(timeElements);
+    };
+
+    var readHash = function () {
+        var hash = window.decodeURIComponent(window.location.hash.substr(1));
+        if (hash.length > 0) {
+            input.val(hash);
+            filterPackages();
+        }
+    };
+
+    var updateHash = function () {
+        window.location.hash = window.encodeURIComponent(input.val());
+    };
+
+    var filterPackages = function () {
+        var needle = input.val().toLowerCase();
+
+        list.hide();
+
+        packages.each(function () {
+            $(this).closest('div.panel').toggle(
+                $(this).text().toLowerCase().indexOf(needle) !== -1
+            );
+        });
+
+        list.show();
+    };
+
+    input.keyup(function () {
+        updateHash();
+        window.clearTimeout(inputTimeout);
+        inputTimeout = window.setTimeout(filterPackages, 350);
+    });
+
+    $(window).keyup(function (event) {
+        if (event.keyCode === 27) { // "ESC" keyCode
+            input.val('');
+            filterPackages();
+        }
+    });
+
+    readHash();
+    updateTimeElements();
+    window.setInterval(updateTimeElements, 5000);
+});
+</script>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="octicon-link" viewBox="0 0 16 16">
+        <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    </symbol>
+</svg>
+</body>
+</html>

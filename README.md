@@ -18,3 +18,6 @@ A private package manager for composer, gradle, npm, pod etc.
 - [ ] Cache public repos to local
 - [ ] Add support for CI integration
 - [ ] Add admin panel
+
+## Reference
+- https://inthecheesefactory.com/blog/how-to-setup-private-maven-repository/en

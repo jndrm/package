@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client as HttpClient;
 use App\Jobs\DownJob;
 
-class PackageController extends Controller
+class PackageController extends BaseController
 {
     public function index()
     {

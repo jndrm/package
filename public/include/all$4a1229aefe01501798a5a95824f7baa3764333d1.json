@@ -1,0 +1,56 @@
+{
+    "packages": {
+        "jndrm/phpwoo": {
+            "dev-master": {
+                "name": "jndrm/phpwoo",
+                "version": "dev-master",
+                "version_normalized": "9999999-dev",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/jndrm/phpwoo.git",
+                    "reference": "37905da01fdfb463f4aac0719a0f74c76f0fefe0"
+                },
+                "dist": {
+                    "type": "tar",
+                    "url": "http://package.dev//storage/archives/jndrm/phpwoo/jndrm-phpwoo-37905da01fdfb463f4aac0719a0f74c76f0fefe0-zip-747941.tar",
+                    "reference": "37905da01fdfb463f4aac0719a0f74c76f0fefe0",
+                    "shasum": "4ac9ee21fdf8a67e61a97d9f7bde61399eda9653"
+                },
+                "require": {
+                    "ext-swoole": "2.*"
+                },
+                "time": "2018-05-26T09:32:54+00:00",
+                "type": "library",
+                "extra": {
+                    "laravel": {
+                        "providers": [
+                            "Drmer\\Phpwoo\\Laravel\\PhpwooServiceProvider"
+                        ]
+                    }
+                },
+                "autoload": {
+                    "psr-0": {
+                        "Drmer\\Phpwoo": "src/"
+                    }
+                },
+                "notification-url": "https://packagist.org/downloads/",
+                "license": [
+                    "MIT"
+                ],
+                "authors": [
+                    {
+                        "name": "Donald",
+                        "email": "donald@drmer.net"
+                    }
+                ],
+                "description": "Speed up your php applications with swoole!",
+                "keywords": [
+                    "drmer",
+                    "phpwoo",
+                    "server",
+                    "swoole"
+                ]
+            }
+        }
+    }
+}

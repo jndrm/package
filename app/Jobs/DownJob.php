@@ -70,11 +70,11 @@ class DownJob implements ShouldQueue
 
         $ch = curl_init();
         curl_setopt_array($ch, $options);
-        $return = curl_exec($ch);
 
-        if ($return === false) {
+        if (false === curl_exec($ch)) {
             throw new \Exception(curl_error($ch));
         }
+
         return true;
     }
 }

@@ -1,0 +1,9 @@
+{
+    "packages": [],
+    "includes": {
+        "include/all$4a1229aefe01501798a5a95824f7baa3764333d1.json": {
+            "sha1": "4a1229aefe01501798a5a95824f7baa3764333d1"
+        }
+    },
+    "notify-batch": "http://package.dev/endpoint"
+}
